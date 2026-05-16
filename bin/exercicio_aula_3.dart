@@ -15,7 +15,7 @@ void main(List<String> arguments) {
 
   for (var venda in vendas) {
     print(
-      'Email : ${venda.client.email} Produtos Comprados : ${venda.itensList.itens.length} Pagamento : ${venda.payment.method}',
+      '[ID-VENDA : ${venda.idSale}] [ID-USUARIO : ${venda.client.idClient}][MÉTODO-PAGAMENTO : ${venda.payment.method}] \n[PRODUTOS : ${venda.itensList.itens.map((item) =>'ID: ${item.idItem} || NOME : ${item.name} || QUANTIDADE: ${item.quantity}] [VALOR UNITARIO ${item.unitValue}')}]\n',
     );
   }
 }
