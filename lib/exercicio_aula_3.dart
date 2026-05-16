@@ -96,7 +96,7 @@ class ListSales {
           .toList();
 
   void printSales() {
-    for (var venda in this.salesList) {
+    for (var venda in salesList) {
       print(
         '[ID-VENDA : ${venda.idSale}] [ID-USUARIO : ${venda.client.idClient}][MÉTODO-PAGAMENTO : ${venda.payment.method}] \n[PRODUTOS : ${venda.itensList.itensList.map((item) => 'ID: ${item.idItem} || NOME : ${item.name} || QUANTIDADE: ${item.quantity}] [VALOR UNITARIO ${item.unitValue}')}]\n',
       );
