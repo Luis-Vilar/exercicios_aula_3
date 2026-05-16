@@ -41,10 +41,10 @@ class Item {
 }
 
 class ItemList {
-  List<Item> itens;
-  ItemList({required this.itens});
+  List<Item> itensList;
+  ItemList({required this.itensList});
   ItemList.fromListMapStringDynamic(List<Map<String, dynamic>> itemList)
-    : itens = itemList
+    : itensList = itemList
           .map(
             (item) => Item(
               idItem: item['id_produto'] as String,
@@ -98,7 +98,7 @@ class ListSales {
   void printSales() {
     for (var venda in this.salesList) {
       print(
-        '[ID-VENDA : ${venda.idSale}] [ID-USUARIO : ${venda.client.idClient}][MÉTODO-PAGAMENTO : ${venda.payment.method}] \n[PRODUTOS : ${venda.itensList.itens.map((item) => 'ID: ${item.idItem} || NOME : ${item.name} || QUANTIDADE: ${item.quantity}] [VALOR UNITARIO ${item.unitValue}')}]\n',
+        '[ID-VENDA : ${venda.idSale}] [ID-USUARIO : ${venda.client.idClient}][MÉTODO-PAGAMENTO : ${venda.payment.method}] \n[PRODUTOS : ${venda.itensList.itensList.map((item) => 'ID: ${item.idItem} || NOME : ${item.name} || QUANTIDADE: ${item.quantity}] [VALOR UNITARIO ${item.unitValue}')}]\n',
       );
     }
   }
