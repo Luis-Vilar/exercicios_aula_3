@@ -1,12 +1,12 @@
 class Client {
   String idClient;
-  String name;
-  String email;
-  Client({required this.idClient, required this.name, required this.email});
+  String nameClient;
+  String emailClient;
+  Client({required this.idClient, required this.nameClient, required this.emailClient});
   Client.fromMap(Map map)
     : idClient = map['id_cliente'],
-      name = map['nome'],
-      email = map['email'];
+      nameClient = map['nome'],
+      emailClient = map['email'];
 }
 
 class Payment {
@@ -28,27 +28,27 @@ class Payment {
 
 class Item {
   String idItem;
-  String name;
+  String nameItem;
   double unitValue;
   int quantity;
 
   Item({
     required this.idItem,
-    required this.name,
+    required this.nameItem,
     required this.quantity,
     required this.unitValue,
   });
 }
 
 class ItemList {
-  List<Item> itensList;
-  ItemList({required this.itensList});
+  List<Item> itemList;
+  ItemList({required this.itemList});
   ItemList.fromListMapStringDynamic(List<Map<String, dynamic>> itemList)
-    : itensList = itemList
+    : itemList = itemList
           .map(
             (item) => Item(
               idItem: item['id_produto'] as String,
-              name: item['nome'] as String,
+              nameItem: item['nome'] as String,
               quantity: item['quantidade'] as int,
               unitValue: (item['preco_unitario'] as num).toDouble(),
             ),
@@ -62,7 +62,7 @@ class Sale {
   String status; //todo : implement enum
   Client client;
   Payment payment;
-  ItemList itensList;
+  ItemList itemList;
 
   Sale({
     required this.idSale,
@@ -70,7 +70,7 @@ class Sale {
     required this.status,
     required this.client,
     required this.payment,
-    required this.itensList,
+    required this.itemList,
   });
 }
 
@@ -88,7 +88,7 @@ class ListSales {
               status: venda['status'] as String,
               client: Client.fromMap(venda['cliente'] as Map),
               payment: Payment.fomMap(venda['pagamento'] as Map),
-              itensList: ItemList.fromListMapStringDynamic(
+              itemList: ItemList.fromListMapStringDynamic(
                 venda['itens'] as List<Map<String, dynamic>>,
               ),
             ),
@@ -98,7 +98,7 @@ class ListSales {
   void printSales() {
     for (var venda in salesList) {
       print(
-        '[ID-VENDA : ${venda.idSale}] [ID-USUARIO : ${venda.client.idClient}][MÉTODO-PAGAMENTO : ${venda.payment.method}] \n[PRODUTOS : ${venda.itensList.itensList.map((item) => 'ID: ${item.idItem} || NOME : ${item.name} || QUANTIDADE: ${item.quantity}] [VALOR UNITARIO ${item.unitValue}')}]\n',
+        '[ID-VENDA : ${venda.idSale}] [ID-USUARIO : ${venda.client.idClient}][MÉTODO-PAGAMENTO : ${venda.payment.method}] \n[PRODUTOS : ${venda.itemList.itemList.map((item) => 'ID: ${item.idItem} || NOME : ${item.nameItem} || QUANTIDADE: ${item.quantity}] [VALOR UNITARIO ${item.unitValue}')}]\n',
       );
     }
   }
