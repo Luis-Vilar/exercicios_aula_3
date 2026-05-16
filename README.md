@@ -1,6 +1,24 @@
+# Projeto criado com o comando dart create
+
+## Pasta lib
+
+Contem uma sub pasta db com um arquivo data.dart onde se encontra a listaPedidos simulando uma base de dados e sales.class.dart que e onde sao declaradas as classes para converter a data em objetos
+
+## Pasta bin
+
+Contem o arquivo exercicio_aula_3.dart que e o ponto de entrada da aplicação
+
+### Como executar
+
+Na terminal execute o siguiente comando
+
+```shell
+dart run 
+```
+
 # Exercicio
 
-- Usando classes crie as entidades necesarias.
+- Usando classes crie as entidades necesarias para tratar listaPedidos.
 
 ## Data
 
