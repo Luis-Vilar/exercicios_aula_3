@@ -1,10 +1,3 @@
-# Exercicio
-
-- Usando classes crie as entidades necesarias.
-
-## Data
-
-```dart
 final listaPedidos = [
   {
     "id_pedido": "REQ-9872",
@@ -56,4 +49,3 @@ final listaPedidos = [
     ],
   },
 ];
-```
